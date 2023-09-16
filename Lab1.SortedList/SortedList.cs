@@ -120,6 +120,6 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
 
 public class Node<T>
 {
-    public required T Value { get; set; }
+    public required T Value { get; init; }
     public Node<T>? Next { get; set; }
 }
