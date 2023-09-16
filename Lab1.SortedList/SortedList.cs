@@ -5,6 +5,8 @@ namespace Lab1.SortedList;
 public class SortedList<T> : ICollection<T> where T : IComparable<T>
 {
     private Node<T>? _head;
+    public int Count { get; }
+    public bool IsReadOnly => false;
     
     public IEnumerator<T> GetEnumerator()
     {
@@ -50,9 +52,6 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
     {
         throw new NotImplementedException();
     }
-
-    public int Count { get; }
-    public bool IsReadOnly { get; }
 }
 
 public class Node<T>
