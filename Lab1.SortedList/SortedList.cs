@@ -7,6 +7,10 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
     private Node<T>? _head;
     public int Count { get; private set; }
     public bool IsReadOnly => false;
+
+    public event EventHandler? OnAdd;
+    public event EventHandler? OnRemove;
+    public event EventHandler? OnClear;
     
     public IEnumerator<T> GetEnumerator()
     {
@@ -48,6 +52,8 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
 
         newNode.Next = node.Next;
         node.Next = newNode;
+        
+        OnAdd?.Invoke(this, EventArgs.Empty);
     }
 
     public T? Find(Predicate<T> match)
@@ -67,6 +73,8 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
     {
         _head = null;
         Count = 0;
+        
+        OnClear?.Invoke(this, EventArgs.Empty);
     }
 
     public bool Contains(T item)
@@ -115,6 +123,8 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
         {
             Count--;
             _head = node.Next;
+        
+            OnRemove?.Invoke(this, EventArgs.Empty);
             return true;
         }
         
@@ -124,6 +134,8 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
             {
                 Count--;
                 node.Next = node.Next.Next;
+        
+                OnRemove?.Invoke(this, EventArgs.Empty);
                 return true;
             }
             
