@@ -116,6 +116,11 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
 
         return false;
     }
+
+    public override string ToString()
+    {
+        return string.Join(", ", this);
+    }
 }
 
 public class Node<T>
