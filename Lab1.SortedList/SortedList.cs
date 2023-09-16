@@ -8,7 +8,12 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
     
     public IEnumerator<T> GetEnumerator()
     {
-        
+        var node = _head;
+        while (node is not null)
+        {
+            yield return node.Value;
+            node = node.Next;
+        }
     }
 
     IEnumerator IEnumerable.GetEnumerator()
