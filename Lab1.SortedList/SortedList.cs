@@ -25,6 +25,8 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
 
     public void Add(T item)
     {
+        ArgumentNullException.ThrowIfNull(item);
+        
         Count++;
         var newNode = new Node<T>
         {
@@ -69,6 +71,8 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
 
     public bool Contains(T item)
     {
+        ArgumentNullException.ThrowIfNull(item);
+        
         foreach (var node in this)
         {
             if (node.CompareTo(item) == 0)
@@ -82,6 +86,16 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
 
     public void CopyTo(T[] array, int arrayIndex)
     {
+        ArgumentNullException.ThrowIfNull(array);
+        if (arrayIndex < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(arrayIndex));
+        }
+        if (array.Length - arrayIndex < Count)
+        {
+            throw new ArgumentException("Destination array is not long enough to copy all the items in the collection.");
+        }
+        
         var i = arrayIndex;
         foreach (var item in this)
         {
@@ -92,6 +106,8 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
 
     public bool Remove(T item)
     {
+        ArgumentNullException.ThrowIfNull(item);
+        
         var node = _head;
         if (node is null) return false;
         
