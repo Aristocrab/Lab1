@@ -150,9 +150,3 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
         return string.Join(", ", this);
     }
 }
-
-public class Node<T>
-{
-    public required T Value { get; init; }
-    public Node<T>? Next { get; set; }
-}
