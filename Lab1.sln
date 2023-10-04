@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1.SortedList", "Lab1.Sor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{6ADEADF8-2C3F-4DCC-BDA7-CAACCD34D9D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1.SortedList.Tests", "Lab1.SortedList.Tests\Lab1.SortedList.Tests.csproj", "{237CA27E-ED37-4938-A092-C956B367AB08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{6ADEADF8-2C3F-4DCC-BDA7-CAACCD34D9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ADEADF8-2C3F-4DCC-BDA7-CAACCD34D9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ADEADF8-2C3F-4DCC-BDA7-CAACCD34D9D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237CA27E-ED37-4938-A092-C956B367AB08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237CA27E-ED37-4938-A092-C956B367AB08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237CA27E-ED37-4938-A092-C956B367AB08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237CA27E-ED37-4938-A092-C956B367AB08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

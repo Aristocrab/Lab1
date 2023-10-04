@@ -30,6 +30,7 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
     public void Add(T item)
     {
         ArgumentNullException.ThrowIfNull(item);
+        OnAdd?.Invoke(this, EventArgs.Empty);
         
         Count++;
         var newNode = new Node<T>
@@ -52,8 +53,6 @@ public class SortedList<T> : ICollection<T> where T : IComparable<T>
 
         newNode.Next = node.Next;
         node.Next = newNode;
-        
-        OnAdd?.Invoke(this, EventArgs.Empty);
     }
 
     public T? Find(Predicate<T> match)
