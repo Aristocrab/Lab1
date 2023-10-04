@@ -23,4 +23,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Lab1.SortedList\Lab1.SortedList.csproj" />
+    </ItemGroup>
+
 </Project>
