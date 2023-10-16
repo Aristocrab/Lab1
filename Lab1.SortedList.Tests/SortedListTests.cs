@@ -241,4 +241,51 @@ public class SortedListTests
         // Assert
         copyAction.Should().Throw<ArgumentException>();
     }
+
+    [Fact]
+    public void SubscribeOnAdd_InvokesEventHandlerWhenItemIsAdded()
+    {
+        // Arrange
+        var sortedList = new SortedList<int>();
+        var eventWasInvoked = false;
+        sortedList.OnAdd += (sender, args) => eventWasInvoked = true;
+
+        // Act
+        sortedList.Add(1);
+
+        // Assert
+        eventWasInvoked.Should().BeTrue();
+    }
+    
+    [Fact]
+    public void SubscribeOnRemove_InvokesEventHandlerWhenItemIsRemoved()
+    {
+        // Arrange
+        var sortedList = new SortedList<int>();
+        var eventWasInvoked = false;
+        sortedList.OnRemove += (sender, args) => eventWasInvoked = true;
+        sortedList.Add(1);
+
+        // Act
+        sortedList.Remove(1);
+
+        // Assert
+        eventWasInvoked.Should().BeTrue();
+    }
+    
+    [Fact]
+    public void SubscribeOnClear_InvokesEventHandlerWhenListIsCleared()
+    {
+        // Arrange
+        var sortedList = new SortedList<int>();
+        var eventWasInvoked = false;
+        sortedList.OnClear += (sender, args) => eventWasInvoked = true;
+        sortedList.Add(1);
+
+        // Act
+        sortedList.Clear();
+
+        // Assert
+        eventWasInvoked.Should().BeTrue();
+    }
 }
