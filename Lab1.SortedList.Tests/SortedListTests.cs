@@ -330,4 +330,17 @@ public class SortedListTests
         enumerator.Current.Should().Be(2);
         enumerator.MoveNext().Should().BeFalse();
     }
+    
+    [Fact]
+    public void IsReadOnly_ReturnsFalse()
+    {
+        // Arrange
+        var sortedList = new SortedList<int>();
+
+        // Act
+        var isReadOnly = sortedList.IsReadOnly;
+
+        // Assert
+        isReadOnly.Should().BeFalse();
+    }
 }
