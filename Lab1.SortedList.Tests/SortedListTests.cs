@@ -1,4 +1,6 @@
-﻿namespace Lab1.SortedList.Tests;
+﻿using System.Collections;
+
+namespace Lab1.SortedList.Tests;
 using FluentAssertions;
 
 public class SortedListTests
@@ -248,7 +250,7 @@ public class SortedListTests
         // Arrange
         var sortedList = new SortedList<int>();
         var eventWasInvoked = false;
-        sortedList.OnAdd += (sender, args) => eventWasInvoked = true;
+        sortedList.OnAdd += (_, _) => eventWasInvoked = true;
 
         // Act
         sortedList.Add(1);
@@ -263,7 +265,7 @@ public class SortedListTests
         // Arrange
         var sortedList = new SortedList<int>();
         var eventWasInvoked = false;
-        sortedList.OnRemove += (sender, args) => eventWasInvoked = true;
+        sortedList.OnRemove += (_, _) => eventWasInvoked = true;
         sortedList.Add(1);
 
         // Act
@@ -279,7 +281,7 @@ public class SortedListTests
         // Arrange
         var sortedList = new SortedList<int>();
         var eventWasInvoked = false;
-        sortedList.OnClear += (sender, args) => eventWasInvoked = true;
+        sortedList.OnClear += (_, _) => eventWasInvoked = true;
         sortedList.Add(1);
 
         // Act
