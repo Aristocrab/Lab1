@@ -290,4 +290,44 @@ public class SortedListTests
         // Assert
         eventWasInvoked.Should().BeTrue();
     }
+    
+    [Fact]
+    public void GetEnumerator_ReturnsEnumerator()
+    {
+        // Arrange
+        var sortedList = new SortedList<int>();
+        sortedList.Add(1);
+        sortedList.Add(2);
+
+        // Act
+        using var enumerator = sortedList.GetEnumerator();
+
+        // Assert
+        enumerator.Should().NotBeNull();
+        enumerator.MoveNext().Should().BeTrue();
+        enumerator.Current.Should().Be(1);
+        enumerator.MoveNext().Should().BeTrue();
+        enumerator.Current.Should().Be(2);
+        enumerator.MoveNext().Should().BeFalse();
+    }
+    
+    [Fact]
+    public void IEnumerableGetEnumerator_ReturnsEnumerator()
+    {
+        // Arrange
+        var sortedList = new SortedList<int>();
+        sortedList.Add(1);
+        sortedList.Add(2);
+
+        // Act
+        var enumerator = ((IEnumerable) sortedList).GetEnumerator();
+
+        // Assert
+        enumerator.Should().NotBeNull();
+        enumerator.MoveNext().Should().BeTrue();
+        enumerator.Current.Should().Be(1);
+        enumerator.MoveNext().Should().BeTrue();
+        enumerator.Current.Should().Be(2);
+        enumerator.MoveNext().Should().BeFalse();
+    }
 }
