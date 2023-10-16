@@ -343,4 +343,20 @@ public class SortedListTests
         // Assert
         isReadOnly.Should().BeFalse();
     }
+    
+    [Fact]
+    public void ToString_ReturnsSortedListAsString()
+    {
+        // Arrange
+        var sortedList = new SortedList<int>();
+        sortedList.Add(1);
+        sortedList.Add(2);
+        sortedList.Add(3);
+
+        // Act
+        var result = sortedList.ToString();
+
+        // Assert
+        result.Should().Be("1, 2, 3");
+    }
 }
